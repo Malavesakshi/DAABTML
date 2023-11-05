@@ -1,0 +1,34 @@
+public class Fibonacci {
+
+    // Recursive Fibonacci calculation
+    public static int recursiveFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);
+        }
+    }
+
+    // Non-recursive Fibonacci calculation
+    public static int nonRecursiveFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            int fib1 = 0;
+            int fib2 = 1;
+            int fib = 0;
+            for (int i = 2; i <= n; i++) {
+                fib = fib1 + fib2;
+                fib1 = fib2;
+                fib2 = fib;
+            }
+            return fib;
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 10; // Change n to the desired Fibonacci number you want to calculate
+        System.out.println("Recursive Fibonacci(" + n + "): " + recursiveFibonacci(n));
+        System.out.println("Non-Recursive Fibonacci(" + n + "): " + nonRecursiveFibonacci(n));
+    }
+}
